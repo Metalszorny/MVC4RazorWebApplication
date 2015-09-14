@@ -1,0 +1,27 @@
+﻿@{
+    ViewBag.Title = "DeleteRelation";
+}
+<html>
+    <head>
+        <title>MVC4Razor - Delete Relation</title>
+    </head>
+    <body>
+        <form name="DeleteRelation" method="post">
+            <h2>Relation</h2>
+            <br />
+            <label for="relationId"><b>Id:</b></label>
+            <input type="text" value="@ViewBag.Relation.RelationId" name="relationId" id="relationId" readonly />
+            <br />
+            <label for="relationEmployee"><b>Email:</b></label>
+            <input type="text" value="@ViewBag.Relation.RelationEmployee" name="relationEmployee" id="relationEmployee" readonly />
+            <br />
+            <label for="relationWorkplace"><b>Workplace:</b></label>
+            <input type="text" value="@ViewBag.Relation.RelationWorkplace" name="relationWorkplace" id="relationWorkplace" readonly />
+            <br />
+            <br />
+            <input type="submit" value="Delete" />
+        </form>
+        <br />
+        <div>@Html.ActionLink("Back", "Index")</div>
+    </body>
+</html>

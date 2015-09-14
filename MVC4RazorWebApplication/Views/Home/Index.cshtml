@@ -1,0 +1,105 @@
+﻿@{
+    ViewBag.Title = "Index";
+}
+<html>
+    <head>
+        <title>MVC4Razor - Index</title>
+    </head>
+    <body>
+        <table border="1">
+            <tr>
+                <td colspan="5">
+                    <h2>Workplaces</h2>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Id:</b></td>
+                <td><b>Name:</b></td>
+                <td><b>Is Deleted:</b></td>
+                <td colspan="2"><b>Actions:</b></td>
+            </tr>
+            @if (ViewBag.Workplaces != null)
+            {
+                foreach (var oneItem in ViewBag.Workplaces.Items)
+                {
+                    <tr>
+                        <td>@oneItem.WorkplaceId</td>
+                        <td>@oneItem.WorkplaceName</td>
+                        <td>@oneItem.WorkplaceIsDeleted</td>
+                        <td>@Html.ActionLink("Edit", "EditWorkplace", new { @id = @oneItem.WorkplaceId })</td>
+                        <td>@Html.ActionLink("Delete", "DeleteWorkplace", new { @id = @oneItem.WorkplaceId })</td>
+                    </tr>
+                }
+            }
+        </table>
+        <br />
+        <div>@Html.ActionLink("Add New", "AddWorkplace")</div>
+        <div>@Html.ActionLink("Find", "FindWorkplace")</div>
+        <br />
+        <br />
+        <br />
+        <table border="1">
+            <tr>
+                <td colspan="6">
+                    <h2>Employees</h2>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Id:</b></td>
+                <td><b>Name:</b></td>
+                <td><b>Email:</b></td>
+                <td><b>Is Deleted:</b></td>
+                <td colspan="2"><b>Actions:</b></td>
+            </tr>
+            @if (ViewBag.Employees != null)
+            {
+                foreach (var oneItem in ViewBag.Employees.Items)
+                {
+                    <tr>
+                        <td>@oneItem.EmployeeId</td>
+                        <td>@oneItem.EmployeeName</td>
+                        <td>@oneItem.EmployeeEmail</td>
+                        <td>@oneItem.EmployeeIsDeleted</td>
+                        <td>@Html.ActionLink("Edit", "EditEmployee", new { @id = oneItem.EmployeeId })</td>
+                        <td>@Html.ActionLink("Delete", "DeleteEmployee", new { @id = oneItem.EmployeeId })</td>
+                    </tr>
+                }
+            }
+        </table>
+        <br />
+        <div>@Html.ActionLink("Add New", "AddEmployee")</div>
+        <div>@Html.ActionLink("Find", "FindEmployee")</div>
+        <br />
+        <br />
+        <br />
+        <table border="1">
+            <tr>
+                <td colspan="5">
+                    <h2>Relations</h2>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Id:</b></td>
+                <td><b>Employee:</b></td>
+                <td><b>Workplace:</b></td>
+                <td colspan="2"><b>Actions:</b></td>
+            </tr>
+            @if (ViewBag.Relations != null)
+            {
+                foreach (var oneItem in ViewBag.Relations.Items)
+                {
+                    <tr>
+                        <td>@oneItem.RelationId</td>
+                        <td>@oneItem.RelationEmployee</td>
+                        <td>@oneItem.RelationWorkplace</td>
+                        <td>@Html.ActionLink("Edit", "EditRelation", new { @id = oneItem.RelationId })</td>
+                        <td>@Html.ActionLink("Delete", "DeleteRelation", new { @id = oneItem.RelationId })</td>
+                    </tr>
+                }
+            }
+        </table>
+        <br />
+        <div>@Html.ActionLink("Add New", "AddRelation")</div>
+        @*<div>@Html.ActionLink("Find", "FindRelation")</div>*@
+    </body>
+</html>

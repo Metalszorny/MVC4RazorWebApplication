@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "EditEmployee";
+}
+<html>
+    <head>
+        <title>MVC4Razor - Edit Employee</title>
+    </head>
+    <body>
+        <form name="EditEmployee" method="post">
+            <h2>Employee</h2>
+            <br />
+            <label for="employeeId"><b>Id:</b></label>
+            <input type="text" value="@ViewBag.Employee.EmployeeId" name="employeeId" id="employeeId" readonly />
+            <br />
+            <label for="employeeName"><b>Name:</b></label>
+            <input type="text" value="@ViewBag.Employee.EmployeeName" name="employeeName" id="employeeName" />
+            <br />
+            <label for="employeeEmail"><b>Email:</b></label>
+            <input type="text" value="@ViewBag.Employee.EmployeeEmail" name="employeeEmail" id="employeeEmail" />
+            <br />
+            <label for="employeeIsDeleted"><b>Is Deleted:</b></label>
+            <label id="employeeIsDeleted">@ViewBag.Employee.EmployeeIsDeleted</label>
+            <br />
+            <br />
+            <input type="submit" value="Edit" />
+        </form>
+        <br />
+        <div>@Html.ActionLink("Back", "Index")</div>
+    </body>
+</html>

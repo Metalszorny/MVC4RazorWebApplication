@@ -1,0 +1,44 @@
+﻿@{
+    ViewBag.Title = "DeleteEmployee";
+}
+<html>
+    <head>
+        <title>MVC4Razor - Delete Employee</title>
+    </head>
+    <body>
+        <form name="DeleteEmployee" method="post">
+            <h2>Employee</h2>
+            <br />
+            <label for="employeeId"><b>Id:</b></label>
+            <input type="text" value="@ViewBag.Employee.EmployeeId" name="employeeId" id="employeeId" readonly />
+            <br />
+            <label for="employeeName"><b>Name:</b></label>
+            <input type="text" value="@ViewBag.Employee.EmployeeName" name="employeeName" id="employeeName" readonly />
+            <br />
+            <label for="employeeEmail"><b>Email:</b></label>
+            <input type="text" value="@ViewBag.Employee.EmployeeEmail" name="employeeEmail" id="employeeEmail" readonly />
+            <br />
+            <label for="employeeIsDeleted"><b>Is Deleted:</b></label>
+            <label id="employeeIsDeleted">@ViewBag.Employee.EmployeeIsDeleted</label>
+            <br />
+            <br />
+            @if (@ViewBag.Relation != null)
+            {
+                <h3>Delete is not allowed, because at least one relation is using the record.</h3>
+            }
+            else
+            {
+                if (@ViewBag.Employee.EmployeeIsDeleted != false)
+                {
+                    <h3>Delete is not allowed, because record already deleted.</h3>
+                }
+                else
+                {
+                    <input type="submit" value="Delete" />
+                }
+            }
+        </form>
+        <br />
+        <div>@Html.ActionLink("Back", "Index")</div>
+    </body>
+</html>

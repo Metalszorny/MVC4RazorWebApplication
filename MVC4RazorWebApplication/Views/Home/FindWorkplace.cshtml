@@ -1,0 +1,41 @@
+﻿@{
+    ViewBag.Title = "FindWorkplace";
+}
+<html>
+    <head>
+        <title>MVC4Razor - Find Workplace</title>
+    </head>
+    <body>
+        <form name="FindWorkplace" method="post">
+            <h3>Sort:</h3>
+            <label for="workplaceName"><b>Name:</b></label>
+            <input type="text" value="" name="workplaceName" id="workplaceName" />
+            <input type="submit" value="Query" />
+        </form>
+        <table border="1">
+            <tr>
+                <td colspan="3">
+                    <h2>Workplaces</h2>
+                </td>
+            </tr>
+            <tr>
+                <td><b>Id:</b></td>
+                <td><b>Name:</b></td>
+                <td><b>Is Deleted:</b></td>
+            </tr>
+            @if (ViewBag.Workplaces != null)
+            {
+                foreach (var oneItem in ViewBag.Workplaces.Items)
+                {
+                    <tr>
+                        <td>@oneItem.WorkplaceId</td>
+                        <td>@oneItem.WorkplaceName</td>
+                        <td>@oneItem.WorkplaceIsDeleted</td>
+                    </tr>
+                }
+            }
+        </table>
+        <br />
+        <div>@Html.ActionLink("Back", "Index")</div>
+    </body>
+</html>

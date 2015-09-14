@@ -1,0 +1,226 @@
+CREATE DATABASE RazorViewExampleDatabase
+
+
+USE RazorViewExampleDatabase
+GO
+CREATE TABLE Workplaces
+(
+Id int NOT NULL PRIMARY KEY,
+Name varchar(50) NOT NULL,
+IsDeleted bit NOT NULL
+)
+
+USE RazorViewExampleDatabase
+GO
+CREATE TABLE Employees
+(
+Id int NOT NULL PRIMARY KEY,
+Name varchar(50) NOT NULL,
+Email varchar(50),
+IsDeleted bit NOT NULL
+)
+
+USE RazorViewExampleDatabase
+GO
+CREATE TABLE Relations
+(
+Id int PRIMARY KEY,
+Employee int NOT NULL,
+Workplace int NOT NULL,
+FOREIGN KEY (Employee) REFERENCES Employees(Id),
+FOREIGN KEY (Workplace) REFERENCES Workplaces(Id)
+)
+
+
+INSERT INTO RazorViewExampleDatabase.dbo.Workplaces (Id, Name, IsDeleted) VALUES (1, 'Digital Media Experience', 0)
+
+INSERT INTO RazorViewExampleDatabase.dbo.Employees (Id, Name, Email, IsDeleted) VALUES (1, 'Kis Pista', 'pista.kis@mediaux.biz', 0)
+
+INSERT INTO RazorViewExampleDatabase.dbo.Relations (Id, Employee, Workplace) VALUES (1, 1, 1)
+
+
+USE RazorViewExampleDatabase
+GO
+CREATE PROCEDURE spListWorkplaces
+AS
+BEGIN
+	SELECT * FROM RazorViewExampleDatabase.dbo.Workplaces
+END
+
+USE RazorViewExampleDatabase
+GO
+CREATE PROCEDURE spListEmployees
+AS
+BEGIN
+	SELECT * FROM RazorViewExampleDatabase.dbo.Employees
+END
+
+USE RazorViewExampleDatabase
+GO
+CREATE PROCEDURE spListRelations
+AS
+BEGIN
+	SELECT * FROM RazorViewExampleDatabase.dbo.Relations
+END
+
+
+USE RazorViewExampleDatabase
+GO
+CREATE PROCEDURE spAddWorkplace
+@id int,
+@name varchar(50),
+@isdeleted bit
+AS
+BEGIN
+	INSERT INTO RazorViewExampleDatabase.dbo.Workplaces (Id, Name, IsDeleted) Values (@id, @name, @isdeleted)
+END
+
+USE RazorViewExampleDatabase
+GO
+CREATE PROCEDURE spAddEmployee
+@id int,
+@name varchar(50),
+@email varchar(50),
+@isdeleted bit
+AS
+BEGIN
+	INSERT INTO RazorViewExampleDatabase.dbo.Employees (Id, Name, Email, IsDeleted) Values (@id, @name, @email, @isdeleted)
+END
+
+USE RazorViewExampleDatabase
+GO
+CREATE PROCEDURE spAddRelation
+@id int,
+@employee int,
+@workplace int
+AS
+BEGIN
+	INSERT INTO RazorViewExampleDatabase.dbo.Relations (Id, Employee, Workplace) Values (@id, @employee, @workplace)
+END
+
+
+USE RazorViewExampleDatabase
+GO
+CREATE PROCEDURE spEditWorkplace
+@id int,
+@name varchar(50)
+AS
+BEGIN
+	UPDATE RazorViewExampleDatabase.dbo.Workplaces SET Name = @name WHERE Id = @id
+END
+
+USE RazorViewExampleDatabase
+GO
+CREATE PROCEDURE spEditEmployee
+@id int,
+@name varchar(50),
+@email varchar(50)
+AS
+BEGIN
+	UPDATE RazorViewExampleDatabase.dbo.Employees SET Name = @name, Email = @email WHERE Id = @id
+END
+
+USE RazorViewExampleDatabase
+GO
+CREATE PROCEDURE spEditRelation
+@id int,
+@employee int,
+@workplace int
+AS
+BEGIN
+	UPDATE RazorViewExampleDatabase.dbo.Relations SET Employee = @employee, Workplace = @workplace WHERE Id = @id
+END
+
+
+USE RazorViewExampleDatabase
+GO
+CREATE PROCEDURE spDeleteWorkplace
+@id int
+AS
+BEGIN
+	UPDATE RazorViewExampleDatabase.dbo.Workplaces SET IsDeleted = 1 WHERE Id = @id
+END
+
+USE RazorViewExampleDatabase
+GO
+CREATE PROCEDURE spDeleteEmployee
+@id int
+AS
+BEGIN
+	UPDATE RazorViewExampleDatabase.dbo.Employees SET IsDeleted = 1 WHERE Id = @id
+END
+
+USE RazorViewExampleDatabase
+GO
+CREATE PROCEDURE spDeleteRelation
+@id int
+AS
+BEGIN
+	DELETE FROM RazorViewExampleDatabase.dbo.Relations WHERE Id = @id
+END
+
+
+USE RazorViewExampleDatabase
+GO
+CREATE PROCEDURE spFindWorkplaceByName
+@name varchar(50)
+AS
+BEGIN
+	SELECT * FROM RazorViewExampleDatabase.dbo.Workplaces WHERE Name LIKE '%' + @name + '%'
+END
+
+USE RazorViewExampleDatabase
+GO
+CREATE PROCEDURE spFindEmployeeByName
+@name varchar(50)
+AS
+BEGIN
+	SELECT * FROM RazorViewExampleDatabase.dbo.Employees WHERE Name LIKE '%' + @name '%'
+END
+
+USE RazorViewExampleDatabase
+GO
+CREATE PROCEDURE spFindEmployeeByEmail
+@email varchar(50)
+AS
+BEGIN
+	SELECT * FROM RazorViewExampleDatabase.dbo.Employees WHERE Email LIKE '%' + @email + '%'
+END
+
+USE RazorViewExampleDatabase
+GO
+CREATE PROCEDURE spFindEmployeeByNameAndEmail
+@name varchar(50),
+@email varchar(50)
+AS
+BEGIN
+	SELECT * FROM RazorViewExampleDatabase.dbo.Employees WHERE Email LIKE '%' + @email + '%' AND Name LIKE '%' + @name + '%'
+END
+
+USE RazorViewExampleDatabase
+GO
+CREATE PROCEDURE spFindRelationByEmployee
+@employee int
+AS
+BEGIN
+	SELECT * FROM RazorViewExampleDatabase.dbo.Relations WHERE Employee LIKE '%' + @employee + '%'
+END
+
+USE RazorViewExampleDatabase
+GO
+CREATE PROCEDURE spFindRelationByWorkplace
+@workplace int
+AS
+BEGIN
+	SELECT * FROM RazorViewExampleDatabase.dbo.Relations WHERE Workplace LIKE '%' + @workplace + '%'
+END
+
+USE RazorViewExampleDatabase
+GO
+CREATE PROCEDURE spFindRelationByEmployeeAndWorkplace
+@employee int,
+@workplace int
+AS
+BEGIN
+	SELECT * FROM RazorViewExampleDatabase.dbo.Relations WHERE Workplace LIKE '%' + @workplace + '%' AND Employee LIKE '%' + @employee + '%'
+END

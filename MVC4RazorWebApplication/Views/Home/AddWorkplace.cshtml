@@ -1,0 +1,21 @@
+﻿@{
+    ViewBag.Title = "AddWorkplace";
+}
+<html>
+    <head>
+        <title>MVC4Razor - Add Workplace</title>
+    </head>
+    <body>
+        <form name="AddWorkplace" method="post">
+            <h2>Workplace</h2>
+            <br />
+            <label for="workplaceName"><b>Name:</b></label>
+            <input type="text" value="" name="workplaceName" id="workplaceName" />
+            <br />
+            <br />
+            <input type="submit" value="Add" />
+        </form>
+        <br />
+        <div>@Html.ActionLink("Back", "Index")</div>
+    </body>
+</html>

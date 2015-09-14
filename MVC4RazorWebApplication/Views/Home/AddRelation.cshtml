@@ -1,0 +1,40 @@
+﻿@{
+    ViewBag.Title = "AddRelation";
+}
+<html>
+    <head>
+        <title>MVC4Razor - Add Relation</title>
+    </head>
+    <body>
+        <form name="AddRelation" method="post">
+            <h2>Relation</h2>
+            <br />
+            <label for="relationEmployee"><b>Employee:</b></label>
+            <select name="relationEmployee" id="relationEmployee">
+                @foreach (var oneItem in @ViewBag.Employees.Items)
+                {
+                    if (@oneItem.EmployeeIsDeleted == false)
+                    {
+                        <option value="@oneItem.EmployeeId">@oneItem.EmployeeName</option>
+                    }
+                }
+            </select>
+            <br />
+            <label for="relationWorkplace"><b>Employee:</b></label>
+            <select name="relationWorkplace" id="relationWorkplace">
+                @foreach (var oneItem in @ViewBag.Workplaces.Items)
+                {
+                    if (@oneItem.WorkplaceIsDeleted == false)
+                    {
+                        <option value="@oneItem.WorkplaceId">@oneItem.WorkplaceName</option>
+                    }
+                }
+            </select>
+            <br />
+            <br />
+            <input type="submit" value="Add" />
+        </form>
+        <br />
+        <div>@Html.ActionLink("Back", "Index")</div>
+    </body>
+</html>
