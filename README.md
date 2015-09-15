@@ -15,7 +15,7 @@ Features:
 
 Enviroment:
 -----------
-- IDE: Microsoft Visual Studio 2013 with .Net Framework 4.5
+- IDE: Microsoft Visual Studio 2013 Ultimate Update 2 with .Net Framework 4.5
 - Database: Microsoft Sql Server 2012 Developer
 - Test: Google Chrome
 - OS: Microsoft Windows 8.1 Ultimate, 64 bit
