@@ -7,6 +7,13 @@ About:
 An MVC 4 test web application that uses the Razor view engine. It uses List, Add, Edit, Logical Delete and Find functions on an Employees, Workplaces and Relations database.
 
 
+Used languages:
+---------------
+- C#
+- SQL
+- HTML
+
+
 Features:
 ---------
 - Microsoft-SQL connection with Windows authentication
