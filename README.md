@@ -9,7 +9,7 @@ An MVC 4 test web application that uses the Razor view engine. It uses List, Add
 
 Used languages:
 ---------------
-- C#
+- Visual C#
 - SQL
 - HTML
 
