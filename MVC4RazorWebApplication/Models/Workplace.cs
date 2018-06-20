@@ -66,9 +66,7 @@ namespace MVC4RazorWebApplication.Models
         /// Initializes a new instance of the <see cref="Workplace"/> class.
         /// </summary>
         public Workplace()
-        {
-
-        }
+        { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Workplace"/> class.
@@ -82,6 +80,12 @@ namespace MVC4RazorWebApplication.Models
             workplaceName = workplacename;
             workplaceIsDeleted = workplaceisdeleted;
         }
+		
+		/// <summary>
+        /// Destroys the instance of the <see cref="Workplace"/> class.
+        /// </summary>
+        ~Workplace()
+        { }
 
         #endregion Constructors
 
@@ -104,7 +108,8 @@ namespace MVC4RazorWebApplication.Models
         /// <summary>
         /// Gets or sets the Items.
         /// </summary>
-        public List<Workplace> Items { get; set; }
+        public List<Workplace> Items
+		{ get; set; }
 
         #endregion Properties
 
@@ -117,6 +122,12 @@ namespace MVC4RazorWebApplication.Models
         {
             Items = new List<Workplace>();
         }
+		
+		/// <summary>
+        /// Destroys the instance of the <see cref="Workplaces"/> class.
+        /// </summary>
+        ~Workplaces()
+        { }
 
         #endregion Constructors
 

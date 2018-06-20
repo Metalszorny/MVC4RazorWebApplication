@@ -81,9 +81,7 @@ namespace MVC4RazorWebApplication.Models
         /// Initializes a new instance of the <see cref="Employee"/> class.
         /// </summary>
         public Employee()
-        {
-
-        }
+        { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Employee"/> class.
@@ -99,6 +97,12 @@ namespace MVC4RazorWebApplication.Models
             employeeEmail = employeeemail;
             employeeIsDeleted = workplaceisdeleted;
         }
+		
+		/// <summary>
+        /// Destroys the instance of the <see cref="Employee"/> class.
+        /// </summary>
+        ~Employee()
+        { }
 
         #endregion Constructors
 
@@ -121,7 +125,8 @@ namespace MVC4RazorWebApplication.Models
         /// <summary>
         /// Gets or sets the Items.
         /// </summary>
-        public List<Employee> Items { get; set; }
+        public List<Employee> Items
+		{ get; set; }
 
         #endregion Properties
 
@@ -134,6 +139,12 @@ namespace MVC4RazorWebApplication.Models
         {
             Items = new List<Employee>();
         }
+		
+		/// <summary>
+        /// Destroys the instance of the <see cref="Employees"/> class.
+        /// </summary>
+        ~Employees()
+        { }
 
         #endregion Constructors
 

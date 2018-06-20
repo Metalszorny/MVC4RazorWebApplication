@@ -1,5 +1,4 @@
-# MVC4RazorWebApplication
-=========================
+# MVC4RazorWebApplicationInVisualCSharp
 
 
 About:
@@ -18,6 +17,8 @@ Features:
 ---------
 - Microsoft-SQL connection with Windows authentication
 - Stored Procedures
+- .Net ADO SqlClient
+- Static functionality
 
 
 Enviroment:

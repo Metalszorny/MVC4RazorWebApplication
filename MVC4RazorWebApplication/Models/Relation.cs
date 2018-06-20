@@ -66,9 +66,7 @@ namespace MVC4RazorWebApplication.Models
         /// Initializes a new instance of the <see cref="Relation"/> class.
         /// </summary>
         public Relation()
-        {
-
-        }
+        { }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Relation"/> class.
@@ -82,6 +80,12 @@ namespace MVC4RazorWebApplication.Models
             relationEmployee = relationemployee;
             relationWorkplace = relationworkplace;
         }
+		
+		/// <summary>
+        /// Destroys the instance of the <see cref="Relation"/> class.
+        /// </summary>
+        ~Relation()
+        { }
 
         #endregion Constructors
 
@@ -104,7 +108,8 @@ namespace MVC4RazorWebApplication.Models
         /// <summary>
         /// Gets or sets the Items.
         /// </summary>
-        public List<Relation> Items { get; set; }
+        public List<Relation> Items
+		{ get; set; }
 
         #endregion Properties
 
@@ -117,6 +122,12 @@ namespace MVC4RazorWebApplication.Models
         {
             Items = new List<Relation>();
         }
+		
+		/// <summary>
+        /// Destroys the instance of the <see cref="Relations"/> class.
+        /// </summary>
+        ~Relations()
+        { }
 
         #endregion Constructors
 
